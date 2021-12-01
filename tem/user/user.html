@@ -1,0 +1,43 @@
+{{ define "user/user.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>user table</h1>
+  状态码：{{printf "%s" .code }}
+  数据:  {{printf "%s" .data }}
+<table>
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>username</td>
+        <td>sex</td>
+    </tr>
+    </thead>
+    <tbody>
+        {{ if eq .code 200 }}
+
+            {{ range .data }}
+            <tr>
+                <td>{{ .Id }}</td>
+                <td>{{ .Username }}</td>
+                <td>
+                    {{ if eq .Sex  0 }}
+                    男
+                    {{ else }}
+                    女
+                    {{ end }}
+                </td>
+            </tr>
+
+            {{ end }}
+        {{ end }}
+
+    </tbody>
+</table>
+</body>
+</html>
+{{ end }}

@@ -79,7 +79,7 @@ func AuthHandler(c *gin.Context) {
 	}
 
 	// 校验用户名与密码是否正确
-	if user.UserName != "admin" || user.Password != "123456" {
+	if user.Username != "admin" || user.Password != "123456" {
 		c.JSON(200, gin.H{
 			"code": 404,
 			"msg":  "用户名或密码错误",
@@ -89,7 +89,7 @@ func AuthHandler(c *gin.Context) {
 	}
 
 	// 生成Token
-	tokenString, _ := GenToken(user.UserName)
+	tokenString, _ := GenToken(user.Username)
 	c.JSON(200, gin.H{
 		"code": 2000,
 		"msg":  "success",
@@ -140,7 +140,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 		}
 		// 将当前请求的username信息保存到请求的上下文c上
 		c.Set("username", mc.Username)
-		
+
 		c.Next() // 后续的处理函数可以用过c.Get("username")来获取当前请求的用户信息
 	}
 }

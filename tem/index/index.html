@@ -1,0 +1,23 @@
+{{ define "index/index.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <script src="/static/jquery/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <h1>hello world!!!</h1>
+    <h2>我是 {{.name}}</h2>
+
+    <script>
+        $(function (){
+            alert("测试静态文件")
+        })
+    </script>
+</body>
+</html>
+
+{{ end }}

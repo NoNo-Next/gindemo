@@ -4,9 +4,10 @@ package entity
 func (User) TableName() string {
 	return "user"
 }
-type User struct {
-	Id int `json:"id" form:"id"`
-	UserName string `json:"userName" form:"username"`
-	Password string `json:"password" form:"password"`
-}
 
+type User struct {
+	Id       int    `json:"id" form:"id"`
+	Username string `json:"username" form:"username"`
+	Password string `json:"password" form:"password"`
+	Sex      int    `json:"sex" form:"sex"`
+}
